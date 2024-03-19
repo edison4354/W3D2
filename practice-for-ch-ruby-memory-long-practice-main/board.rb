@@ -2,7 +2,7 @@ require_relative 'card.rb'
 
 class Board
   attr_reader :grid, :n
-  def initialize(n)
+  def initialize(n=4)
     @n = n
     @grid = Array.new(n) { Array.new(n) }
   end
