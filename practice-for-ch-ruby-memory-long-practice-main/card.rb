@@ -19,7 +19,7 @@ class Card
   end
 
   def ==(card_1)
-    @face_value == card_1
+    @face_value == card_1.face_value
   end
 
 end
