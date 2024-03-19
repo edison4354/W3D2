@@ -17,6 +17,7 @@ class Game
         b = Board.new()
         b.populate
         while !b.won?
+            system("clear")
             @prev_guessed=0
             b.render
             @prev_guessed = self.make_guess
@@ -26,7 +27,7 @@ class Game
                 pos = self.make_guess
                 b.reveal(pos)
                 b.render
-                if b.grid[@prev_guessed[0]][@prev_guessed[1]] == b.grid[pos[0]][pos[1]] 
+                if b.grid[@prev_guessed[0]][@prev_guessed[1]] == b.grid[pos[0]][pos[1]]
                     b.grid[pos[0]][pos[1]].reveal
                     b.grid[@prev_guessed[0]][@prev_guessed[1]].reveal
                     already_guessed<<b.grid[pos[0]][pos[1]]
@@ -35,10 +36,11 @@ class Game
                     b.grid[@prev_guessed[0]][@prev_guessed[1]].hide
                 end
                 puts "----------------next--try------------------"
-            end     
+            else
+              puts "Position already guessed!"
+            end
+            sleep(3)
         end
         puts "you won"
-
     end
-
 end

@@ -47,4 +47,19 @@ class Board
     row, col = pos
     @grid[row][col].reveal
   end
+
+  def cheat
+    @grid.each do |row|
+      row.each do |col|
+        if col.side_up
+          print '_'
+          print ' '
+        else
+          print col
+          print ' '
+        end
+      end
+      puts
+    end
+  end
 end
